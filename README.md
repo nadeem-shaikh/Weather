@@ -5,6 +5,8 @@ This Application Displays the Weather of Selected City
 
 Spring 4.2.5.RELEASE
 
+Jetty 
+
 jQuery v3.2.1
 
 AngularJS v1.4.4
