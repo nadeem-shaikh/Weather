@@ -16,7 +16,9 @@ Maven 3
 2. To Run this project locally
 
 $ git clone https://github.com/nadeem-shaikh/Weather
+
 $ mvn jetty:run
+
 Access http://localhost:8080/Weather
 
 3. To import this project into Eclipse IDE
