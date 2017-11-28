@@ -4,9 +4,13 @@ This Application Displays the Weather of Selected City
 1. Technologies used
 
 Spring 4.2.5.RELEASE
+
 jQuery v3.2.1
+
 AngularJS v1.4.4
+
 Bootstrap v3.3.7
+
 Maven 3
 
 2. To Run this project locally
