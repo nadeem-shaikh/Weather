@@ -34,22 +34,29 @@ public class RestServiceController {
 	 */
 	@RequestMapping(value = { "/cities" }, method = RequestMethod.GET)
 	public String getCities() {
-		
-		//Fetch value of cities from the application.properties file
-		String inputCities = environment.getRequiredProperty("cities");
-		
-		//Split the comma separated cities and collect in String Array
-		String[] cities = inputCities.split(",");
-		List<City> m = new ArrayList<City>();
-
-		for (String key : cities)
-			m.add(new City(key));
 		String returnVal = "";
-
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
-				.create();
-		returnVal = gson.toJson(m);
-		return returnVal;
+		List<City> m = new ArrayList<City>();
+		try
+		{
+			//Fetch value of cities from the application.properties file
+			String inputCities = environment.getRequiredProperty("cities");
+			
+			//Split the comma separated cities and collect in String Array
+			String[] cities = inputCities.split(",");
+	
+			for (String key : cities)
+				m.add(new City(key));
+	
+			Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
+					.create();
+			returnVal = gson.toJson(m);
+			return returnVal;
+		}
+		catch (Exception ex)
+		{
+			return returnVal ;
+			
+		}
 
 	}
 
@@ -62,14 +69,26 @@ public class RestServiceController {
 	 */
 	@RequestMapping(value = { "/findWeather" }, method = RequestMethod.GET)
 	public String findWeather(@QueryParam("city") String city) {
+	
 		String returnVal = "";
-		RestTemplate restTemplate = new RestTemplate();
-		String url = "http://query.yahooapis.com/v1/public/yql?q=select *  from weather.forecast where woeid in (select woeid from geo.places(1) where text='"
-				+ city + "' )and u='c'&format=json";
-		Result result = restTemplate.getForObject(url, Result.class);
 		Gson gson = new GsonBuilder().create();
-		returnVal = gson.toJson(result);
-		return returnVal;
+		RestTemplate restTemplate = new RestTemplate();
+		try
+		{
+	
+			String url = "http://query.yahooapis.com/v1/public/yql?q=select *  from weather.forecast where woeid in (select woeid from geo.places(1) where text='"
+					+ city + "' )and u='c'&format=json";
+			Result result = restTemplate.getForObject(url, Result.class);
+
+			returnVal = gson.toJson(result);
+			return returnVal;
+		}
+		catch (Exception ex)
+		{
+			//returnVal = "Weather is not Available";
+			return returnVal ;
+			
+		}
 
 	}
 }
