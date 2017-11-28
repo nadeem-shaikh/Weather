@@ -1,0 +1,36 @@
+<style>
+    
+        .tlt-txt{
+            color: #878787;
+                margin-bottom: 5px;
+        }
+        .fulldiv{
+            padding: 15px; 
+            border: 1px solid #878787;
+        }
+        table tr td{
+            color: #878787;
+        }
+        .tempclass{
+                font-size: 51px;
+    color: #000;
+            }
+        .bigdigi{
+            font-size: 47px;
+    color: #000;
+    position: relative;
+       left: -167px;  
+        }
+        .smalldigi{
+                position: relative;
+    top: -14px;
+    left: -162px;
+        }
+        .date-txt{
+            font-size: 16px ;
+        }
+        .last-td{
+            position: relative;
+    top: -10px;
+        }
+    </style>
