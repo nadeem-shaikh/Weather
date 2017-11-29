@@ -23,9 +23,13 @@ $ mvn jetty:run
 
 Access http://localhost:8080/Weather
 
-3. To import this project into Eclipse IDE
+3. Steps to Run test cases
+
+$ mvn test
+
+4. To import this project into Eclipse IDE
 
 $ mvn eclipse:eclipse
 Import into Eclipse via existing projects into workspace option.
 
-4. Done.
+5. Done.
